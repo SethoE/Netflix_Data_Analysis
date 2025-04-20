@@ -5,7 +5,7 @@ Dieses Projekt behandelt eine Daten Analyse von Netflix.
 - Enyan Xia
 
 
-## The Move DB API's Terms of Service:
+## The Movie DB API's Terms of Service:
 C. Restrictions. In addition, You must not:
 
 - Attempt to cloak or conceal Your identity, or the identity of any website, program, service, application, or other product (collectively "Application(s)") that accesses TMDB or the TMDB APIs, when using or requesting authorization to use TMDB APIs.
