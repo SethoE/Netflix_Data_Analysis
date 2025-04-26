@@ -1,32 +1,23 @@
 # Anderes Modul eventuell verwenden
-import requests
+
+import httpx
 import pandas as pd
 from config import TMDB_BEARER_TOKEN
 
-url = "https://api.themoviedb.org/3/configuration"
-url_rated_tv = "https://api.themoviedb.org/3/guest_session/guest_session_id/rated/tv?language=en-US&page=1&sort_by=created_at.asc"
-url_movies = "https://api.themoviedb.org/3/discover/movie"
-headers = {
-    "accept": "application/json",
-    "Authorization": f"Bearer {TMDB_BEARER_TOKEN}"
+
+
+url_discover_movies = "https://api.themoviedb.org/3/discover/movie"
+headers = {"Authorization": f"Bearer {TMDB_BEARER_TOKEN}"}
+params = {
+    "sort_by": "popularity.desc", # Nach popularität sortiert
+    "with_watch_providers": "8", # Netflix
+    "watch_region": "DE" # Deutschland
 }
 
-# response = requests.get(url, headers=headers)
-response = requests.get(url_movies, headers=headers)
+response = httpx.get(url_discover_movies, headers=headers, params=params)
 data = response.json()
 
-movies = data.get("results", [])
+print(data)
 
 # In ein DataFrame umwandeln
-if movies:
-    df = pd.DataFrame(movies)
-
-    # Nur bestimmte Spalten zur Übersicht auswählen
-    df_view = df[["title", "release_date", "vote_average", "vote_count"]]
-
-    # Tabelle anzeigen
-    from IPython.display import display
-    display(df_view.head(10))
-else:
-    print("Keine Filme gefunden oder Antwort ungültig.")
 print(response.text)
