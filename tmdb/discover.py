@@ -12,7 +12,7 @@ class Discover(TMDbbase):
         "tv": "/discover/tv"
     }
 
-    def get_movies(self, region=DEFAULT_REGION, sort_by=DEFAULT_SORT_BY, provider_id=DEFAULT_PROVIDER_NETFLIX, page=DEFAULT_PAGE):
+    def get_movies(self, region=DEFAULT_REGION, sort_by=DEFAULT_SORT_BY, provider_id=DEFAULT_PROVIDER_NETFLIX, page=DEFAULT_PAGE, **kwargs) -> dict:
         """Discover movies from TMBb and use parameters to filter the result."""
         params = {
             "sort_by": sort_by,
@@ -20,9 +20,10 @@ class Discover(TMDbbase):
             "watch_region": region,
             "page": page
         }
+
         return self.get_request(self.ENDPOINTS.get("movie"), params)
 
-    def get_tv_shows(self, region=DEFAULT_REGION, sort_by=DEFAULT_SORT_BY, provider_id=DEFAULT_PROVIDER_NETFLIX, page=DEFAULT_PAGE):
+    def get_tv_shows(self, region=DEFAULT_REGION, sort_by=DEFAULT_SORT_BY, provider_id=DEFAULT_PROVIDER_NETFLIX, page=DEFAULT_PAGE, **kwargs) -> dict:
         """Discover TV shows from TMBb and use parameters to filter the result."""
         params = {
             "sort_by": sort_by,
@@ -30,4 +31,5 @@ class Discover(TMDbbase):
             "watch_region": region,
             "page": page
         }
+        params.update(kwargs)
         return self.get_request(self.ENDPOINTS.get("tv"), params)

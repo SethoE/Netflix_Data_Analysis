@@ -1,0 +1,50 @@
+AL – Albanien
+AD – Andorra
+AM – Armenien
+AT – Österreich
+AZ – Aserbaidschan
+BA – Bosnien und Herzegowina
+BE – Belgien
+BG – Bulgarien
+BY – Belarus (Weißrussland)
+CH – Schweiz
+CY – Zypern
+CZ – Tschechien
+DE – Deutschland
+DK – Dänemark
+EE – Estland
+ES – Spanien
+FI – Finnland
+FR – Frankreich
+GB – Vereinigtes Königreich (UK)
+GE – Georgien
+GR – Griechenland
+HR – Kroatien
+HU – Ungarn
+IE – Irland
+IS – Island
+IT – Italien
+KZ – Kasachstan (teils in Europa, teils in Asien)
+LI – Liechtenstein
+LT – Litauen
+LU – Luxemburg
+LV – Lettland
+MC – Monaco
+MD – Moldau
+ME – Montenegro
+MK – Nordmazedonien
+MT – Malta
+NL – Niederlande
+NO – Norwegen
+PL – Polen
+PT – Portugal
+RO – Rumänien
+RS – Serbien
+RU – Russland
+SE – Schweden
+SI – Slowenien
+SK – Slowakei
+SM – San Marino
+TR – Türkei (teilweise in Europa)
+UA – Ukraine
+VA – Vatikanstadt
