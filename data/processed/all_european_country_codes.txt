@@ -1,8 +1,6 @@
 AL
 AD
-AM
 AT
-AZ
 BA
 BE
 BG
@@ -17,14 +15,12 @@ ES
 FI
 FR
 GB
-GE
 GR
 HR
 HU
 IE
 IS
 IT
-KZ
 LI
 LT
 LU
@@ -40,7 +36,6 @@ PL
 PT
 RO
 RS
-RU
 SE
 SI
 SK

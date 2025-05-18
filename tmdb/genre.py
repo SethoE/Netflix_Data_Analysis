@@ -1,5 +1,5 @@
 import httpx
-from tmdb_base import TMDbbase
+from tmdb.tmdb_base import TMDbbase
 
 class Genre(TMDbbase):
 
