@@ -4,6 +4,16 @@ Dieses Projekt behandelt eine Daten Analyse von Netflix.
 - Setho Ehrmann
 - Enyan Xia
 
+# Installation Guide:
+1. Clone the repository
+2. Create a virtual environment (```python -m venv .venv```)
+3. Activate the virtual environment (```source .venv/bin/activate```)
+3. Install the requirements (```pip install -r requirements.txt```)
+4. Create a secrets.env file in the config folder and add your TMDB API key and bearer token (```TMDB_API_KEY=your_api_key```)
+5. Run the main.py file
+
+
+
 
 ## The Movie DB API's Terms of Service:
 C. Restrictions. In addition, You must not:
