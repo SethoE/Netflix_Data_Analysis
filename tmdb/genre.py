@@ -1,5 +1,5 @@
 import httpx
-from tmdb_base import TMDbbase
+from tmdb.tmdb_base import TMDbbase
 
 class Genre(TMDbbase):
 
@@ -8,10 +8,10 @@ class Genre(TMDbbase):
         "tv": "/genre/tv/list"
     }
 
-    def get_movie(self):
+    def get_movie(self) -> dict:
         """Get all the genres available for movies"""
         return self.get_request(self.ENDPOINTS.get("movie"))
 
-    def get_tv(self):
+    def get_tv(self) -> dict:
         """Get all the genres available for TV"""
         return self.get_request(self.ENDPOINTS.get("tv"))
