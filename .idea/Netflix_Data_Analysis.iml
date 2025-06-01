@@ -2,7 +2,7 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.13.3 WSL (Ubuntu): (/home/ehrmanns/.virtualenvs/2025-sose-dscb230-exercise/bin/python)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.13.3 WSL (Ubuntu): (/home/ehrmanns/code/01_Python_Code/01_Studium_Data_Science/02 - Semester/03_Informatik (Mruzek-Vering)/02_Hausarbeit/Netflix_Data_Analysis/.venv/bin/python)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
