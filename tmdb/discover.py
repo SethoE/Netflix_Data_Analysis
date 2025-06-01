@@ -41,23 +41,41 @@ class Discover(TMDbbase):
 
 
     # Neue Funktion mit automatischem Delay und Retry bei Rate Limit
-    def safe_get_movies(self, region=DEFAULT_REGION, sort_by=DEFAULT_SORT_BY, provider_id=DEFAULT_PROVIDER_NETFLIX, retries=3, delay=0.2, page=DEFAULT_PAGE, **kwargs):
-        params = {
-            "sort_by": sort_by,
-            "with_watch_providers": provider_id,
-            "watch_region": region,
-            "page": page
-        }
+    def safe_get_movies(self, region=DEFAULT_REGION, sort_by=DEFAULT_SORT_BY, with_watch_providers=DEFAULT_PROVIDER_NETFLIX, retries=3,
+            delay=0.2,
+            backoff_factor=2.0,
+            page=DEFAULT_PAGE,
+            **kwargs
+    ):
+        """
+        Holt sequenziell die Discover-/Movies-Liste (TMDb) und versucht bei leeren Responses
+        bis zu 'retries'-mal, mit einem exponentiellen Backoff.
+        """
+        params = dict(sort_by=sort_by, with_watch_providers=with_watch_providers, watch_region=region, page=page)
         if "params" in kwargs:
             params.update(kwargs["params"])
 
-        for attempt in range(retries):
+        current_delay = delay
+        for attempt in range(1, retries + 1):
             response = self.get_request(self.ENDPOINTS.get("movie"), params)
-            if response != {}:
-                time.sleep(delay)  # Respect rate limits
+
+            # Wenn wir ein valides Ergebnis haben (nicht {}), geben wir es zurück
+            if response and response != {}:
+                # kurz pausieren, um sicher unter TMDb-Limit zu bleiben
+                time.sleep(delay)
                 return response
-            print(f"Retrying ({attempt + 1}/{retries}) for {region} - Page {page}...")
-            time.sleep(2)
-            print(f"[WARN] Abbruch nach {retries} Fehlversuchen für {region} Page {page}")
-            return {}
+
+            # Hier sind wir also auf einen „leeren“ oder fehlgeschlagenen Response gestoßen
+            if attempt < retries:
+                print(f"[WARN] Versuch {attempt}/{retries} für {region} Page {page} fehlgeschlagen. "
+                      f"Sleep {current_delay:.2f}s und neuer Versuch...")
+                time.sleep(current_delay)
+                # Exponential Backoff (um beim nächsten Mal etwas länger zu warten)
+                current_delay *= backoff_factor
+            else:
+                # Letzter Versuch war auch erfolglos → breche endgültig ab
+                print(f"[ERROR] Alle {retries} Versuche für {region} Page {page} sind fehlgeschlagen.")
+                return {}
+
+        # Sicherheitshalber, sollte nie erreicht werden:
         return {}
