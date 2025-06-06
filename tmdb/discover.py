@@ -65,7 +65,7 @@ class Discover(TMDbbase):
                 time.sleep(delay)
                 return response
 
-            # Hier sind wir also auf einen „leeren“ oder fehlgeschlagenen Response gestoßen
+            # Hier sind wir also auf einen "leeren" oder fehlgeschlagenen Response gestoßen
             if attempt < retries:
                 print(f"[WARN] Versuch {attempt}/{retries} für {region} Page {page} fehlgeschlagen. "
                       f"Sleep {current_delay:.2f}s und neuer Versuch...")
