@@ -174,3 +174,5 @@ cython_debug/
 .pypirc
 
 # Domain specific files
+data/processed/
+data/raw/
