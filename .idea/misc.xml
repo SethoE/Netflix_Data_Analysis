@@ -3,5 +3,8 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.13 (Python-Übungen)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.13.3 WSL (Ubuntu): (/home/ehrmanns/code/01_Python_Code/01_Studium_Data_Science/02 - Semester/03_Informatik (Mruzek-Vering)/02_Hausarbeit/Netflix_Data_Analysis/.venv/bin/python)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.13" project-jdk-type="Python SDK" />
+  <component name="PyPackaging">
+    <option name="earlyReleasesAsUpgrades" value="true" />
+  </component>
 </project>
