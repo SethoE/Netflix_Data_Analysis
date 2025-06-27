@@ -13,6 +13,17 @@ Dieses Projekt behandelt eine Daten Analyse von Netflix.
 5. Run the main.py file
 
 
+## Steps to run Jupyter lab:
+1. ```pip install ipykernel```
+2. ```commandline
+    python -m ipykernel install \
+    --user \
+    --name netflix_data_analysis \
+    --display-name "Python 3.13.3"
+   ```
+3. If you want to run jupyter lab use the command (```jupyter lab```)
+
+
 
 
 ## The Movie DB API's Terms of Service:
